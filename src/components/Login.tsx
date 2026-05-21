@@ -72,7 +72,7 @@ const Login = () => {
             </View>
 
             {/* Button */}
-            <Pressable style={styles.button} onPress={()=> navigation.navigate("Home")} >
+            <Pressable style={styles.button} onPress={()=> navigation.navigate("MainTabs")} >
               <Text style={styles.buttonText}>Sign In</Text>
             </Pressable>
 
