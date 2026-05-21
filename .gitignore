@@ -1,5 +1,7 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
+static-state-navigation/
+
 # dependencies
 node_modules/
 

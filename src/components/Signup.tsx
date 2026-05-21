@@ -9,18 +9,10 @@ import {
   Platform,
   ScrollView,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native'
-import { StackNavigationProp } from '@react-navigation/stack';
-import {StackParamListType} from '../types/index'
-
-
-type LoginScreenNavigationProp = StackNavigationProp<StackParamListType, 'Login'>;
 
 const PRIMARY = '#FF4500';
 
-const Login = () => {
-  const navigation = useNavigation<LoginScreenNavigationProp>()
-
+const Signup = () => {
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView
@@ -32,36 +24,54 @@ const Login = () => {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
-          
+
           {/* Top Section */}
           <View style={styles.topContainer}>
-            <View style={styles.logoBox}>
+            {/* <View style={styles.logoBox}>
               <Text style={styles.logoEmoji}>🍔</Text>
-            </View>
+            </View> */}
 
-            <Text style={styles.appName}>Eatly</Text>
+            {/* <Text style={styles.appName}>Eatly</Text> */}
           </View>
 
           {/* Bottom Section */}
           <View style={styles.bottomContainer}>
             <Text style={styles.welcomeText}>
-              Welcome back 👋
+              Create account 🚀
             </Text>
+
+            {/* Full Name */}
+            <View style={styles.inputContainer}>
+              <Text style={styles.label}>
+                Full name
+              </Text>
+
+              <TextInput
+                placeholder="John Doe"
+                placeholderTextColor="#8f8f8f"
+                style={styles.input}
+              />
+            </View>
 
             {/* Email */}
             <View style={styles.inputContainer}>
-              <Text style={styles.label}>Email address</Text>
+              <Text style={styles.label}>
+                Email address
+              </Text>
 
               <TextInput
                 placeholder="you@email.com"
                 placeholderTextColor="#8f8f8f"
+                keyboardType="email-address"
                 style={styles.input}
               />
             </View>
 
             {/* Password */}
             <View style={styles.inputContainer}>
-              <Text style={styles.label}>Password</Text>
+              <Text style={styles.label}>
+                Password
+              </Text>
 
               <TextInput
                 placeholder="••••••••"
@@ -71,21 +81,40 @@ const Login = () => {
               />
             </View>
 
-            {/* Button */}
-            <Pressable style={styles.button} onPress={()=> navigation.navigate("Home")} >
-              <Text style={styles.buttonText}>Sign In</Text>
+            {/* Confirm Password */}
+            <View style={styles.inputContainer}>
+              <Text style={styles.label}>
+                Confirm password
+              </Text>
+
+              <TextInput
+                placeholder="••••••••"
+                placeholderTextColor="#8f8f8f"
+                secureTextEntry
+                style={styles.input}
+              />
+            </View>
+
+            {/* Signup Button */}
+            <Pressable style={styles.button}>
+              <Text style={styles.buttonText}>
+                Sign Up
+              </Text>
             </Pressable>
 
             {/* Footer */}
             <View style={styles.footer}>
               <Text style={styles.footerText}>
-                Don't have an account?
+                Already have an account?
               </Text>
 
-              <Text style={styles.signupText}>
-                {' '}Sign up
-              </Text>
+              <Pressable>
+                <Text style={styles.signupText}>
+                  {' '}Sign In
+                </Text>
+              </Pressable>
             </View>
+
           </View>
 
         </ScrollView>
@@ -94,7 +123,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
 
 const styles = StyleSheet.create({
   container: {
@@ -103,7 +132,8 @@ const styles = StyleSheet.create({
   },
 
   topContainer: {
-    height: 300,
+    // height: 280,
+    height: 150,
     backgroundColor: PRIMARY,
     justifyContent: 'center',
     alignItems: 'center',
@@ -132,8 +162,6 @@ const styles = StyleSheet.create({
   bottomContainer: {
     flex: 1,
     backgroundColor: '#232323',
-    // borderTopLeftRadius: 30,
-    // borderTopRightRadius: 30,
     borderRadius: 30,
     paddingHorizontal: 25,
     paddingTop: 35,
@@ -149,7 +177,7 @@ const styles = StyleSheet.create({
   },
 
   inputContainer: {
-    marginBottom: 22,
+    marginBottom: 20,
   },
 
   label: {
@@ -176,7 +204,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 12,
+    marginTop: 10,
   },
 
   buttonText: {

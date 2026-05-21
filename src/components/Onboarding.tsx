@@ -2,9 +2,17 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack';
+import {StackParamListType} from '../types/index'
+
+
+  type OnboardingScreenNavigationProp = StackNavigationProp<StackParamListType, 'Onboarding'>;
 
 
 const Onboarding = () => {
+  const navigation = useNavigation<OnboardingScreenNavigationProp>();
+
   return (
     <LinearGradient
       colors={["#FF6B2C", "#FF4500", "#8B2E00", "#2B2B2B"]}
@@ -23,7 +31,7 @@ const Onboarding = () => {
             <Text style={styles.para}>in real-time.</Text>
           {/* </View> */}
         </View>
-        <Pressable style={styles.btn}>
+        <Pressable style={styles.btn} onPress={()=> navigation.navigate("Login")}>
           <Text style={styles.btnText}>Get Started</Text>
         </Pressable>
       </SafeAreaView>
