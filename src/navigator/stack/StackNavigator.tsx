@@ -1,5 +1,4 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from '../../components/Home';
 import Onboarding from '../../components/Onboarding';
 import Login from '../../components/Login';
 import { NavigationContainer } from '@react-navigation/native';

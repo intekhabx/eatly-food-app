@@ -3,21 +3,19 @@ import {
   StyleSheet,
   Text,
   View,
-  Pressable,
   ScrollView,
+  Pressable,
 } from 'react-native';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-
-type MenuItemProps = {
-  icon: string;
-  title: string;
-};
+import { useNavigation } from '@react-navigation/native';
 
 const PRIMARY = '#FF5A1F';
 
 const Profile = () => {
+  const navigation = useNavigation<any>();
+
   return (
     <LinearGradient
       colors={['#ff5a1f', '#111', '#111']}
@@ -26,25 +24,18 @@ const Profile = () => {
       <SafeAreaView style={styles.container}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{
-            paddingBottom: 120,
-          }}
+          contentContainerStyle={{ paddingBottom: 120 }}
+          keyboardShouldPersistTaps="handled"
         >
           {/* HEADER */}
           <View style={styles.header}>
             <View style={styles.avatar}>
-              <Text style={styles.avatarText}>
-                👤
-              </Text>
+              <Text style={styles.avatarText}>👤</Text>
             </View>
 
             <View>
-              <Text style={styles.name}>
-                User
-              </Text>
-              <Text style={styles.email}>
-                user@example.com
-              </Text>
+              <Text style={styles.name}>User</Text>
+              <Text style={styles.email}>user@example.com</Text>
             </View>
           </View>
 
@@ -54,22 +45,30 @@ const Profile = () => {
             <MenuItem
               icon="🛒"
               title="My Orders"
+              onPress={() => {
+                // console.log('clicked My Orders');
+                navigation.navigate('MyOrders');
+              }}
             />
 
             <MenuItem
               icon="📍"
               title="Saved Addresses"
+              // onPress={() => console.log('addresses')}
             />
 
             <MenuItem
               icon="⚙️"
               title="Settings"
+              // onPress={() => console.log('settings')}
             />
 
             <MenuItem
               icon="❓"
               title="Help & Support"
+              // onPress={() => console.log('help')}
             />
+
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -77,19 +76,15 @@ const Profile = () => {
   );
 };
 
-const MenuItem = ({ icon, title }: MenuItemProps) => {
+const MenuItem = ({ icon, title, onPress }: any) => {
   return (
-    <Pressable style={styles.menuItem}>
+    <Pressable onPress={onPress} style={styles.menuItem}>
       <View style={styles.left}>
         <View style={styles.iconBox}>
-          <Text style={styles.icon}>
-            {icon}
-          </Text>
+          <Text style={styles.icon}>{icon}</Text>
         </View>
 
-        <Text style={styles.menuText}>
-          {title}
-        </Text>
+        <Text style={styles.menuText}>{title}</Text>
       </View>
 
       <Text style={styles.arrow}>›</Text>

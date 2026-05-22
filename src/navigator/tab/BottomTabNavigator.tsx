@@ -6,6 +6,7 @@ import Search from "../../components/Search";
 import Profile from "../../components/Profile";
 import Orders from "../../components/Orders"
 import { ComponentProps } from "react";
+import ProfileStack from "../stack/ProfileStackNavigator";
 
 type IconName = ComponentProps<typeof Ionicons>["name"];
 
@@ -51,7 +52,7 @@ function MyTabs(){
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Search} />
       <Tab.Screen name="Orders" component={Orders} options={{tabBarBadge: 3}}/>
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="ProfileHome" component={ProfileStack} />
     </Tab.Navigator>
   )
 }

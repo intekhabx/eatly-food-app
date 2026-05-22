@@ -4,3 +4,9 @@ export type StackParamListType = {
   Signup: undefined;
   MainTabs: undefined;
 };
+
+
+export type ProfileStackParamsListType = {
+  ProfileHome: undefined;
+  MyOrders: undefined;
+};
