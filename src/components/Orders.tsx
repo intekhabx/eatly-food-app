@@ -93,13 +93,13 @@ const Cart = () => {
         >
           {/* Header */}
           <View style={styles.header}>
-            <Pressable style={styles.backButton}>
+            {/* <Pressable style={styles.backButton}>
               <Text style={styles.backIcon}>←</Text>
-            </Pressable>
+            </Pressable> */}
 
             <View style={{ flex: 1 }}>
               <Text style={styles.heading}>
-                Your{'\n'}Cart
+                Your{' '}Cart
               </Text>
             </View>
 

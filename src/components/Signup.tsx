@@ -9,10 +9,19 @@ import {
   Platform,
   ScrollView,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { StackParamListType } from '../types';
+
+
+type signupScreenNavigationProps = StackNavigationProp<StackParamListType, "Signup">
 
 const PRIMARY = '#FF4500';
 
 const Signup = () => {
+
+  const navigation = useNavigation<signupScreenNavigationProps>();
+
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView
@@ -96,7 +105,7 @@ const Signup = () => {
             </View>
 
             {/* Signup Button */}
-            <Pressable style={styles.button}>
+            <Pressable style={styles.button} onPress={()=> navigation.navigate("MainTabs")}>
               <Text style={styles.buttonText}>
                 Sign Up
               </Text>
@@ -108,7 +117,7 @@ const Signup = () => {
                 Already have an account?
               </Text>
 
-              <Pressable>
+              <Pressable onPress={()=> navigation.navigate("Login")}>
                 <Text style={styles.signupText}>
                   {' '}Sign In
                 </Text>

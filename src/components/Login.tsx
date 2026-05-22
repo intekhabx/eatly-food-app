@@ -82,9 +82,11 @@ const Login = () => {
                 Don't have an account?
               </Text>
 
-              <Text style={styles.signupText}>
-                {' '}Sign up
-              </Text>
+              <Pressable onPress={()=> navigation.navigate("Signup")}>
+                <Text style={styles.signupText}>
+                  {' '}Sign up
+                </Text>
+              </Pressable>
             </View>
           </View>
 
